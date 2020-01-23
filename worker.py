@@ -96,7 +96,7 @@ class UrlProcessor(object):
             self.__lock.release()
 
     def __write_to_file(self, data):
-        temp_filename = 'temp{}'.format(str(hexlify(token_bytes(6))))
+        temp_filename = 'temp{}'.format(hexlify(token_bytes(6)).decode('utf-8'))
 
         temp_file = open(temp_filename, 'w+')
         temp_file.write('|'.join([data, str(int(time.time()))]) + '\n')
